@@ -2,8 +2,6 @@ Westeroscraft Launcher
 ===================
 Westeroscraft Launcher is the custom launcher for installing and updating Westeroscraft with built-in byte patching for easy upgrading/downgrading of Minecraft versions.
 
-Like the project? Feel free to [donate] to help continue development!
-
 ## What is Westeroscraft?
 Westeroscraft is a modified version of the Minecraft client, which you can access through the the Westeroscraft Launcher, and when connecting to a server with SpoutPlugin, it allows you to unlock most of the features of SpoutPlugin, such as custom blocks, items, texture packs, etc. It also gives several speed improvements, a minimap, an overview map, etc.
 
