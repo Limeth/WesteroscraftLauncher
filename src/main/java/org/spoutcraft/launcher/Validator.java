@@ -68,14 +68,14 @@ public class Validator {
 			return true;
 		}
 
-		File spoutcraft = new File(Launcher.getGameUpdater().getBinDir(), "spoutcraft.jar");
+		File spoutcraft = new File(Launcher.getGameUpdater().getBinDir(), "westeroscraft.jar");
 		if (spoutcraft.exists()) {
 			if (!compareMD5(build.getMD5(), spoutcraft)) {
-				Launcher.err("Invalid spoutcraft.jar");
+				Launcher.err("Invalid westeroscraft.jar");
 				return spoutcraft.delete();
 			}
 		} else {
-			Launcher.err("There is no spoutcraft.jar");
+			Launcher.err("There is no westeroscraft.jar");
 			return true;
 		}
 

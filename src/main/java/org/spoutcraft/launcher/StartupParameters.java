@@ -81,13 +81,13 @@ public final class StartupParameters {
 	@Parameter(names = {"-nomd5", "-ignoremd5"}, description = "Disables file integrity checking with MD5")
 	private boolean ignoreMD5 = false;
 
-	@Parameter(names = {"-build"}, description = "Uses a specific Spoutcraft build")
+	@Parameter(names = {"-build"}, description = "Uses a specific Westeroscraft build")
 	private int build = -1;
 
 	@Parameter(names = {"-relaunched"}, description = "Used to indicate the process has been relaunched for property memory arguments")
 	private boolean relaunched = false;
 
-	@Parameter(names = {"-console"}, description = "Shows the Spoutcraft debug console window")
+	@Parameter(names = {"-console"}, description = "Shows the Westeroscraft debug console window")
 	private boolean console = false;
 
 	public List<String> getParameters() {
@@ -127,7 +127,7 @@ public final class StartupParameters {
 			log.info("No MD5 mode activated");
 		}
 		if (build != -1) {
-			log.info("Spoutcraft build selected: " + build);
+			log.info("Westeroscraft build selected: " + build);
 		}
 		if (relaunched) {
 			log.info("Relaunched with correct memory");
@@ -174,7 +174,7 @@ public final class StartupParameters {
 				commands.add("javaw");
 			} else if (OperatingSystem.getOS().isMac()) {
 				commands.add("java");
-				commands.add("-Xdock:name=Spoutcraft");
+				commands.add("-Xdock:name=Westeroscraft");
 			} else {
 				commands.add("java");
 			}

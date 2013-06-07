@@ -94,7 +94,7 @@ public class ErrorDialog extends JDialog implements ActionListener {
 	}
 
 	private String generateExceptionReport() {
-		StringBuilder builder = new StringBuilder("Spoutcraft Launcher Error Report:\n");
+		StringBuilder builder = new StringBuilder("Westeroscraft Launcher Error Report:\n");
 		builder.append("( Please submit this report to http://spout.in/issues )\n");
 		builder.append("    Launcher Build: ").append(Settings.getLauncherBuild()).append("\n");
 		builder.append("----------------------------------------------------------------------").append("\n");

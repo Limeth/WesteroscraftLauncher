@@ -221,7 +221,7 @@ public class UpdateThread extends Thread {
 
 	private void updateFiles() {
 		SpoutcraftDirectories dirs = new SpoutcraftDirectories();
-		File oldConfig = new File(Utils.getWorkingDirectory(), "spoutcraft");
+		File oldConfig = new File(Utils.getWorkingDirectory(), "westeroscraft");
 		if (oldConfig.exists() && oldConfig.isDirectory()) {
 			moveDirectory(oldConfig, dirs.getSpoutcraftDir());
 			FileUtils.deleteQuietly(oldConfig);
@@ -260,7 +260,7 @@ public class UpdateThread extends Thread {
 					continue;
 				}
 
-				if (!log.getName().startsWith("spoutcraft")) {
+				if (!log.getName().startsWith("westeroscraft")) {
 					log.delete();
 					continue;
 				}
@@ -327,16 +327,16 @@ public class UpdateThread extends Thread {
 		int steps = libraries.size() + 2;
 		float progress = 100F;
 
-		stateChanged("Checking for Spoutcraft update...", progress / steps);
+		stateChanged("Checking for Westeroscraft update...", progress / steps);
 		progress += 100F;
-		File spoutcraft = new File(Launcher.getGameUpdater().getBinDir(), "spoutcraft.jar");
+		File spoutcraft = new File(Launcher.getGameUpdater().getBinDir(), "westeroscraft.jar");
 		if (!spoutcraft.exists()) {
 			return true;
 		}
 		if (!Settings.isIgnoreMD5() && !build.getMD5().equalsIgnoreCase(MD5Utils.getMD5(spoutcraft))) {
 			return true;
 		}
-		stateChanged("Checking for Spoutcraft update...", progress / steps);
+		stateChanged("Checking for Westeroscraft update...", progress / steps);
 		progress += 100F;
 		File libDir = new File(Launcher.getGameUpdater().getBinDir(), "lib");
 		libDir.mkdir();
@@ -346,7 +346,7 @@ public class UpdateThread extends Thread {
 			if (!libraryFile.exists()) {
 				return true;
 			}
-			stateChanged("Checking for Spoutcraft update...", progress / steps);
+			stateChanged("Checking for Westeroscraft update...", progress / steps);
 			progress += 100F;
 		}
 
@@ -455,26 +455,26 @@ public class UpdateThread extends Thread {
 		cacheDir.mkdir();
 
 		// Process spoutcraft.jar
-		logger.info("Spoutcraft Build: " + build.getBuild());
+		logger.info("Westerocraft Build: " + build.getBuild());
 		File mcCache = new File(Launcher.getGameUpdater().getBinCacheDir(), "minecraft_" + build.getMinecraft().getVersion() + ".jar");
 		File updateMC = new File(Launcher.getGameUpdater().getUpdateDir().getPath() + File.separator + "minecraft.jar");
 		if (mcCache.exists()) {
 			Utils.copy(mcCache, updateMC);
 		}
 
-		File spoutcraft = new File(Launcher.getGameUpdater().getBinDir(), "spoutcraft.jar");
+		File spoutcraft = new File(Launcher.getGameUpdater().getBinDir(), "westeroscraft.jar");
 		if (spoutcraft.exists()) {
 			File spoutcraftCache;
 			if (Integer.parseInt(build.getInstalledBuild()) > 0) {
 				// Save our installed copy
-				spoutcraftCache = new File(cacheDir, "spoutcraft_" + build.getInstalledBuild() + ".jar");
+				spoutcraftCache = new File(cacheDir, "westeroscraft_" + build.getInstalledBuild() + ".jar");
 				if (!spoutcraftCache.exists()) {
 					Utils.copy(spoutcraft, spoutcraftCache);
 				}
 			}
 			spoutcraft.delete();
 			// Check for an old copy of this build if it is already saved
-			spoutcraftCache = new File(cacheDir, "spoutcraft_" + build.getBuild() + ".jar");
+			spoutcraftCache = new File(cacheDir, "westeroscraft_" + build.getBuild() + ".jar");
 			if (spoutcraftCache.exists()) {
 				Utils.copy(spoutcraftCache, spoutcraft);
 			}
@@ -485,7 +485,7 @@ public class UpdateThread extends Thread {
 		String url = build.getSpoutcraftURL();
 
 		if (!spoutcraft.exists()) {
-			Download download = DownloadUtils.downloadFile(url, Launcher.getGameUpdater().getUpdateDir() + File.separator + "spoutcraft.jar", null, build.getMD5(), listener);
+			Download download = DownloadUtils.downloadFile(url, Launcher.getGameUpdater().getUpdateDir() + File.separator + "westeroscraft.jar", null, build.getMD5(), listener);
 			if (download.getResult() == Result.SUCCESS) {
 				Utils.copy(download.getOutFile(), spoutcraft);
 			}
@@ -558,7 +558,7 @@ public class UpdateThread extends Thread {
 				return;
 			}
 
-			HashSet<String> neededBinFiles = new HashSet<String>(Arrays.asList(new String[]{"spoutcraft.jar", "minecraft.jar", "lwjgl.jar", "lwjgl_util.jar", "jinput.jar"}));
+			HashSet<String> neededBinFiles = new HashSet<String>(Arrays.asList(new String[]{"westeroscraft.jar", "minecraft.jar", "lwjgl.jar", "lwjgl_util.jar", "jinput.jar"}));
 			for (File file : Launcher.getGameUpdater().getBinDir().listFiles()) {
 				if (!file.isFile()) {
 					continue;

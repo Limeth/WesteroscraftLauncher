@@ -231,7 +231,7 @@ public final class SpoutcraftData {
 	 * @throws RestfulAPIException if the REST API could not be accessed
 	 */
 	private static String calculateInstall() throws RestfulAPIException {
-		File spoutcraft = new File((new SpoutcraftDirectories()).getBinDir(), "spoutcraft.jar");
+		File spoutcraft = new File((new SpoutcraftDirectories()).getBinDir(), "westeroscraft.jar");
 		if (spoutcraft.exists()) {
 			String md5 = MD5Utils.getMD5(spoutcraft);
 			InputStream stream = null;
@@ -293,7 +293,7 @@ public final class SpoutcraftData {
 	}
 
 	private static class LibraryWrapper {
-		@JsonProperty("spoutcraft")
+		@JsonProperty("westeroscraft")
 		Library[] spoutcraft;
 		@JsonProperty("minecraft")
 		Library[] minecraft;

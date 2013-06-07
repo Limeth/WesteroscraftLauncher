@@ -93,7 +93,7 @@ public class GameLauncher extends JFrame implements WindowListener {
 			return;
 		}
 		if (applet == null) {
-			String message = "Failed to launch Spoutcraft!";
+			String message = "Failed to launch Westeroscraft!";
 			this.setVisible(false);
 			JOptionPane.showMessageDialog(getParent(), message);
 			this.dispose();
@@ -107,7 +107,7 @@ public class GameLauncher extends JFrame implements WindowListener {
 		minecraft.addParameter("username", user);
 		minecraft.addParameter("sessionid", session);
 		minecraft.addParameter("downloadticket", downloadTicket);
-		minecraft.addParameter("spoutcraftlauncher", "true");
+		minecraft.addParameter("westeroscraftlauncher", "true");
 		minecraft.addParameter("portable", params.isPortable() + "");
 		minecraft.addParameter("working_directory", Utils.getWorkingDirectory().getAbsolutePath());
 		if (params.getServer() != null) {
@@ -156,7 +156,7 @@ public class GameLauncher extends JFrame implements WindowListener {
 			minecraft.start();
 			Launcher.getLoginFrame().onEvent(Event.GAME_LAUNCH);
 		} catch (Throwable t) {
-			Launcher.getLogger().log(Level.SEVERE, "Unable to launch Spoutcraft", t);
+			Launcher.getLogger().log(Level.SEVERE, "Unable to launch Westeroscraft", t);
 			SpoutcraftLauncher.flush();
 		}
 		return;
@@ -175,7 +175,7 @@ public class GameLauncher extends JFrame implements WindowListener {
 				Thread.sleep(1000);
 			} catch (InterruptedException e1) { }
 		}
-		System.out.println("Exiting Spoutcraft");
+		System.out.println("Exiting Westeroscraft");
 		this.dispose();
 		System.exit(0);
 	}

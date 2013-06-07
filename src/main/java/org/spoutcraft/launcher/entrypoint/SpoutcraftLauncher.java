@@ -98,7 +98,7 @@ public class SpoutcraftLauncher {
 
 		int launcherBuild = parseInt(getLauncherBuild(), -1);
 		logger.info("---------------------------------------------");
-		logger.info("Spoutcraft Launcher is starting...");
+		logger.info("Westeroscraft Launcher is starting...");
 		logger.info("Operating System: " + System.getProperty("os.name") + " " + System.getProperty("os.version") + " " + System.getProperty("os.arch"));
 		logger.info("Java Version: " + System.getProperty("java.vendor") + " " + System.getProperty("java.version") + " <" + System.getProperty("java.vendor.url") + ">");
 		logger.info("Launcher Build: " + launcherBuild);
@@ -204,7 +204,7 @@ public class SpoutcraftLauncher {
 		// May not be online, check
 		if (localHost.contains("127.0.0.1")) {
 			if (pingURL("http://www.google.com") / 100 != 2) {
-				JOptionPane.showMessageDialog(null, "You must have an internet connection to use Spoutcraft", "No Internet Connection!", JOptionPane.ERROR_MESSAGE);
+				JOptionPane.showMessageDialog(null, "You must have an internet connection to use Westeroscraft", "No Internet Connection!", JOptionPane.ERROR_MESSAGE);
 				System.exit(0);
 			} else if (pingURL("http://get.spout.org") / 100 != 2) {
 				JOptionPane.showMessageDialog(null, "The Spout webservers are currently not responding. Try again later.", "Spout Servers Down", JOptionPane.ERROR_MESSAGE);
@@ -263,7 +263,7 @@ public class SpoutcraftLauncher {
 		temp.delete();
 		temp = new File(Utils.getSystemTemporaryDirectory(), "temp.exe");
 		temp.delete();
-		temp = new File(Utils.getWorkingDirectory(), "Spoutcraft-Launcher.jar");
+		temp = new File(Utils.getWorkingDirectory(), "Westeroscraft-Launcher.jar");
 		temp.delete();
 		temp = new File(Utils.getWorkingDirectory(), "launcherVersion");
 		temp.delete();
@@ -271,7 +271,7 @@ public class SpoutcraftLauncher {
 		temp.delete();
 		temp = new File(Utils.getWorkingDirectory(), "config/libraries.yml");
 		temp.delete();
-		temp = new File(Utils.getWorkingDirectory(), "config/spoutcraft.yml");
+		temp = new File(Utils.getWorkingDirectory(), "config/westeroscraft.yml");
 		temp.delete();
 		temp = new File(Utils.getWorkingDirectory(), "config/minecraft.yml");
 		temp.delete();
@@ -281,7 +281,7 @@ public class SpoutcraftLauncher {
 		OperatingSystem os = OperatingSystem.getOS();
 		if (os.isMac()) {
 			System.setProperty("apple.laf.useScreenMenuBar", "true");
-			System.setProperty("com.apple.mrj.application.apple.menu.about.name", "Spoutcraft");
+			System.setProperty("com.apple.mrj.application.apple.menu.about.name", "Westeroscraft");
 		}
 		try {
 			UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
@@ -304,7 +304,7 @@ public class SpoutcraftLauncher {
 		if (!logDirectory.exists()) {
 			logDirectory.mkdir();
 		}
-		File logs = new File(logDirectory, "spoutcraft_%D.log");
+		File logs = new File(logDirectory, "westeroscraft_%D.log");
 		RotatingFileHandler fileHandler = new RotatingFileHandler(logs.getPath());
 
 		fileHandler.setFormatter(new DateOutputFormatter(new SimpleDateFormat("yyyy/MM/dd HH:mm:ss")));

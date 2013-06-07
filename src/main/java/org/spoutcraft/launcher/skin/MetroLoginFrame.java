@@ -162,7 +162,7 @@ public class MetroLoginFrame extends LoginFrame implements ActionListener, KeyLi
 		// Spoutcraft logo
 		JLabel logo = new JLabel();
 		logo.setBounds(FRAME_WIDTH / 2 - 200, 35, 400, 109);
-		setIcon(logo, "spoutcraft.png", logo.getWidth(), logo.getHeight());
+		setIcon(logo, "westeroscraft.png", logo.getWidth(), logo.getHeight());
 
 		// Progress Bar
 		progressBar = new LiteProgressBar();
@@ -182,7 +182,7 @@ public class MetroLoginFrame extends LoginFrame implements ActionListener, KeyLi
 		}
 
 		// Home Link
-		HyperlinkJLabel home = new HyperlinkJLabel("Home", "http://www.spout.org/");
+		HyperlinkJLabel home = new HyperlinkJLabel("Home", "http://westeroscraft.com/");
 		home.setToolTipText("Visit our homepage");
 		home.setFont(largerMinecraft);
 		home.setBounds(10, FRAME_HEIGHT - 27, 65, 20);
@@ -192,7 +192,7 @@ public class MetroLoginFrame extends LoginFrame implements ActionListener, KeyLi
 		home.setHoverTransparency(1F);
 
 		// Forums link
-		HyperlinkJLabel forums = new HyperlinkJLabel("Forums", "http://forums.spout.org/");
+		HyperlinkJLabel forums = new HyperlinkJLabel("Forums", "http://westeroscraft.com/forum");
 		forums.setToolTipText("Visit our community forums");
 		forums.setFont(largerMinecraft);
 		forums.setBounds(82, FRAME_HEIGHT - 27, 90, 20);
@@ -202,7 +202,7 @@ public class MetroLoginFrame extends LoginFrame implements ActionListener, KeyLi
 		forums.setHoverTransparency(1F);
 
 		// Donate link
-		HyperlinkJLabel donate = new HyperlinkJLabel("Donate", "http://spout.in/donate");
+		HyperlinkJLabel donate = new HyperlinkJLabel("Donate", "http://westeroscraft.com");
 		donate.setToolTipText("Donate to the project");
 		donate.setFont(largerMinecraft);
 		donate.setBounds(185, FRAME_HEIGHT - 27, 85, 20);

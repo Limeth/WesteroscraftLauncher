@@ -42,7 +42,7 @@ import org.spoutcraft.launcher.util.Utils;
 
 public class RestAPI {
 	// Private
-	private static final String PROJECT = "spoutcraft";
+	private static final String PROJECT = "westeroscraft";
 	private static DownpourCache cache = new DownpourCache(new File(new File(Utils.getWorkingDirectory(), "cache"), ".rest-cache"));
 
 	// Public
@@ -51,7 +51,7 @@ public class RestAPI {
 	public static final String INFO_URL = REST_URL + "info/";
 	public static final String LIBRARY_GET_URL = REST_URL + "library/";
 	public static final String ALL_BUILDS_URL = REST_URL + "builds/" + PROJECT;
-	public static final String LAUNCHER_BUILDS_URL = REST_URL + "builds/spoutcraftlauncher";
+	public static final String LAUNCHER_BUILDS_URL = REST_URL + "builds/westeroscraftlauncher";
 	public static final String MINECRAFT_URL = REST_URL + "minecraft";
 	static {
 		try {
@@ -72,14 +72,14 @@ public class RestAPI {
 
 	public static String getLauncherURL(Channel channel) {
 		if (channel != Channel.CUSTOM) {
-			return INFO_URL + channel.toString() + "/" + "spoutcraftlauncher";
+			return INFO_URL + channel.toString() + "/" + "westeroscraftlauncher";
 		}
 		throw new IllegalArgumentException("No download URL available for custom channel builds");
 	}
 
 	public static String getLauncherDownloadURL(Channel channel, boolean jar) {
 		if (channel != Channel.CUSTOM) {
-			return REST_URL + channel.toString() + "/" + "spoutcraftlauncher" + (jar ? ".jar" : ".exe");
+			return REST_URL + channel.toString() + "/" + "westeroscraftlauncher" + (jar ? ".jar" : ".exe");
 		}
 		throw new IllegalArgumentException("No download URL available for custom channel builds");
 	}

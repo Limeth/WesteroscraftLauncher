@@ -71,7 +71,7 @@ public class OptionsMenu extends JDialog implements ActionListener {
 	private static final String CANCEL_ACTION = "cancel";
 	private static final String RESET_ACTION = "reset";
 	private static final String SAVE_ACTION = "save";
-	private static final String SPOUTCRAFT_CHANNEL_ACTION = "spoutcraft_channel";
+	private static final String SPOUTCRAFT_CHANNEL_ACTION = "westeroscraft_channel";
 	private JTabbedPane mainOptions;
 	private JPanel gamePane;
 	private JLabel spoutcraftVersionLabel;
@@ -235,11 +235,11 @@ public class OptionsMenu extends JDialog implements ActionListener {
 		maxMemory = Math.max(512, maxMemory);
 
 		if (maxMemory >= Memory.MAX_32_BIT_MEMORY && !bit64) {
-			memory.setToolTipText("<html>Sets the amount of memory assigned to Spoutcraft<br/>" +
+			memory.setToolTipText("<html>Sets the amount of memory assigned to Westeroscraft<br/>" +
 					"You have more than 1.5GB of memory available, but<br/>" +
 					"you must have 64bit java installed to use it.</html>");
 		} else {
-			memory.setToolTipText("<html>Sets the amount of memory assigned to Spoutcraft<br/>" +
+			memory.setToolTipText("<html>Sets the amount of memory assigned to Westeroscraft<br/>" +
 					"More memory is not always better.<br/>" +
 					"More memory will also cause your CPU to work more.</html>");
 		}
