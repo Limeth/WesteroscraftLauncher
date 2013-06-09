@@ -3,18 +3,18 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<!-- Project information -->
-	<name>Spoutcraft Launcher</name>
-	<groupId>org.spoutcraft</groupId>
+	<name>Westeroscraft Launcher</name>
+	<groupId>com.westeroscraft</groupId>
 	<artifactId>launcher</artifactId>
 	<version>3.0.0-SNAPSHOT</version>
-	<url>http://www.spout.org</url>
+	<url>http://westeroscraft.com</url>
 	<inceptionYear>2011</inceptionYear>
-	<description>Custom launcher for installing and updating Spoutcraft with built-in byte patching for easy upgrading/downgrading of Minecraft versions.</description>
+	<description>Custom launcher for installing and updating Westeroscraft with built-in byte patching for easy upgrading/downgrading of Minecraft versions.</description>
 
 	<!-- Build properties -->
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<mainClass>${project.groupId}.${project.artifactId}.entrypoint.Start</mainClass>
+		<mainClass>org.spoutcraft.launcher.entrypoint.Start</mainClass>
 		<keystore.path>${project.basedir}/src/main/resources/keystore.jks</keystore.path>
 		<keystore.alias>spoutdev</keystore.alias>
 		<keystore.keypass>unleashtheflow</keystore.keypass>
@@ -40,21 +40,20 @@
 
 	<!-- Source code access -->
 	<scm>
-		<developerConnection>scm:git:git@github.com:Legacy/SpoutcraftLauncher.git</developerConnection>
-		<connection>scm:git:git://github.com/Legacy/SpoutcraftLauncher.git</connection>
-		<url>https://github.com/Legacy/SpoutcraftLauncher</url>
+		<developerConnection>scm:git:git@github.com:GameOfBlocks/WesteroscraftLauncher.git</developerConnection>
+		<connection>scm:git:git://github.com/GameOfBlocks/WesteroscraftLauncher.git</connection>
+		<url>https://github.com/GameOfBlocks/WesteroscraftLauncher</url>
 	</scm>
 
 	<!-- Build server -->
 	<ciManagement>
 		<system>jenkins</system>
-		<url>http://build.spout.org/job/SpoutcraftLauncher</url>
+		<url>http://build.spout.org/job/WesteroscraftLauncher</url>
 	</ciManagement>
 
 	<!-- Issue tracker -->
 	<issueManagement>
-		<system>jira</system>
-		<url>http://issues.spout.org/browse/LEGACY</url>
+		<url>https://github.com/GameOfBlocks/WesteroscraftLauncher/issues</url>
 	</issueManagement>
 
 	<!-- Dependency repositories -->
@@ -223,22 +222,6 @@
 					</execution>
 				</executions>
 			</plugin>
-			<!-- Source compiler plugin -->
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-compiler-plugin</artifactId>
-				<version>3.0</version>
-				<configuration>
-					<source>1.5</source>
-					<target>1.5</target>
-					<compilerArguments>
-						<O>-Xlint:all</O>
-						<O>-Xlint:-path</O>
-					</compilerArguments>
-					<showWarnings>true</showWarnings>
-					<showDeprecation>true</showDeprecation>
-				</configuration>
-			</plugin>
 			<!-- JAR creation plugin -->
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
@@ -263,7 +246,7 @@
 							<minimizeJar>true</minimizeJar>
 							<filters>
 								<filter>
-									<artifact>org.spoutcraft:*</artifact>
+									<artifact>org.westeroscraft:*</artifact>
 									<includes>
 										<include>**</include>
 									</includes>
@@ -385,7 +368,7 @@
 						<executions>
 							<execution>
 								<configuration>
-									<bundleName>Spoutcraft</bundleName>
+									<bundleName>Westeroscraft</bundleName>
 									<version>${project.version}</version>
 									<mainClass>${mainClass}</mainClass>
 									<iconFile>${project.basedir}/src/main/resources/app/icon.icns</iconFile>

@@ -1,4 +1,30 @@
 /*
+ * This file is part of Westeroscraft Launcher.
+ *
+ * Copyright (c) 2011 Spout LLC <http://www.spout.org/>
+ * Westeroscraft Launcher is licensed under the Spout License Version 1.
+ *
+ * Westeroscraft Launcher is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Lesser General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * In addition, 180 days after any changes are published, you can use the
+ * software, incorporating those changes, under the terms of the MIT license,
+ * as described in the Spout License Version 1.
+ *
+ * Westeroscraft Launcher is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public License,
+ * the MIT license and the Spout License Version 1 along with this program.
+ * If not, see <http://www.gnu.org/licenses/> for the GNU Lesser General Public
+ * License and see <http://spout.in/licensev1> for the full license,
+ * including the MIT license.
+ */
+/*
  * This file is part of Spoutcraft Launcher.
  *
  * Copyright (c) 2011 Spout LLC <http://www.spout.org/>
@@ -28,6 +54,7 @@ package org.spoutcraft.launcher.launch;
 
 import java.applet.Applet;
 import java.io.File;
+import java.lang.reflect.Field;
 import java.util.List;
 
 import org.spoutcraft.launcher.exceptions.CorruptedMinecraftJarException;
@@ -42,7 +69,7 @@ public class MinecraftLauncher {
 		if (loader == null) {
 			File mcBinFolder = new File(Utils.getWorkingDirectory(), "bin");
 
-			File spoutcraftJar = new File(mcBinFolder, "spoutcraft.jar");
+			File spoutcraftJar = new File(mcBinFolder, "westeroscraft.jar");
 			File minecraftJar = new File(mcBinFolder, "minecraft.jar");
 			File jinputJar = new File(mcBinFolder, "jinput.jar");
 			File lwglJar = new File(mcBinFolder, "lwjgl.jar");
@@ -88,9 +115,15 @@ public class MinecraftLauncher {
 			System.setProperty("net.java.games.input.librarypath", nativesPath);
 			System.setProperty("org.lwjgl.util.Debug", "true");
 			System.setProperty("org.lwjgl.util.NoChecks", "false");
-
-			Class minecraftClass = classLoader.loadClass("net.minecraft.client.MinecraftApplet");
-			return (Applet) minecraftClass.newInstance();
+			Class minecraftAppletClass = classLoader.loadClass("net.minecraft.client.MinecraftApplet");
+			Class minecraftClass = classLoader.loadClass("net.minecraft.client.Minecraft");
+			for(Field f : minecraftClass.getDeclaredFields()) {
+				if(f.getType() == File.class && f.getModifiers() == 10) {
+					f.setAccessible(true);
+					f.set(null, Utils.getWorkingDirectory());
+				}
+			}
+			return (Applet) minecraftAppletClass.newInstance();
 		} catch (ClassNotFoundException ex) {
 			throw new CorruptedMinecraftJarException(ex);
 		} catch (IllegalAccessException ex) {
