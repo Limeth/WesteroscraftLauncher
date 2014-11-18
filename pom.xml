@@ -10,7 +10,7 @@
 	<url>http://westeroscraft.com</url>
 	<inceptionYear>2011</inceptionYear>
 	<description>Custom launcher for installing and updating Westeroscraft with built-in byte patching for easy upgrading/downgrading of Minecraft versions.</description>
-
+	
 	<!-- Build properties -->
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -61,6 +61,16 @@
 		<repository>
 			<id>spout-repo</id>
 			<url>http://repo.spout.org</url>
+			<snapshots>
+				<enabled>true</enabled>
+				<updatePolicy>always</updatePolicy>
+			</snapshots>
+		</repository>
+		
+		<!-- Replacement repositories by Mike Primm -->
+		<repository>
+			<id>mikeprimm-repo</id>
+			<url>http://repo.mikeprimm.com</url>
 			<snapshots>
 				<enabled>true</enabled>
 				<updatePolicy>always</updatePolicy>
@@ -325,9 +335,6 @@
 										<addDependencies>false</addDependencies>
 										<preCp>anything</preCp>
 									</classPath>
-									<jre>
-										<minVersion>1.5.0</minVersion>
-									</jre>
 									<icon>${project.basedir}/src/main/resources/exe/icon.ico</icon>
 									<versionInfo>
 										<fileVersion>3.0.0.${buildNumber}</fileVersion>
